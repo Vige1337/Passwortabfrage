@@ -59,12 +59,15 @@ def validate_password(password):
 
     return len(failed_requirements) == 0, failed_requirements
 
-password = input("Enter a password: ")
-is_valid, failed_requirements = validate_password(password)
+while True:
 
-if is_valid:
-    print("Valid password!")
-else:
-    print("Invalid password. Please try again.")
-    for requirement in failed_requirements:
-        print(requirement)
+    password = input("Enter a password: ")
+    is_valid, failed_requirements = validate_password(password)
+
+
+    if is_valid:
+        print("Valid password!")
+    else:
+        print("Invalid password. Please try again.")
+        for requirement in failed_requirements:
+            print(requirement)
