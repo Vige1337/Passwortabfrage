@@ -1,15 +1,15 @@
 def validate_password(password):
     """
     Validates a password against common requirements:
-    - Minimum length: 8 characters
+    - Minimum length: 10 characters
     - Must contain at least one uppercase letter
     - Must contain at least one digit
     - Must contain at least one special character
     - Must contain the year 1999
-    - Must contain 1FCKoeln
+    - Must contain leevste stadt dä Welt
     """
     requirements = [
-        (len(password) >= 16, "Password must be at least 16 characters long"),
+        (len(password) >= 10, "Password must be at least 10 characters long"),
 
         (any(c.isupper() for c in password), "Password must contain at least one uppercase letter"),
 
@@ -19,7 +19,7 @@ def validate_password(password):
 
         ('1999' in password, "Password must contain the year founding year of mobile zone"),
 
-        ('1FCKoeln' in password, "Password must contain colognes most loved football club")
+        ('koeln' in password, "Password must contain leevste Stadt dä Welt")
     ]
 
     failed_requirements = [req[1] for req in requirements if not req[0]]
@@ -38,5 +38,9 @@ while not is_valid:
         print("Valid password!")
     else:
         print("Invalid password. Please try again.")
-        for requirement in failed_requirements:
-            print(requirement)
+
+        print(failed_requirements[0])
+
+        #alternativ und natürlich wesentlich benutzerfreundlicher
+        #for requirement in failed_requirements:
+           #print(requirement)
